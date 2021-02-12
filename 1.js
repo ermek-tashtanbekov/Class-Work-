@@ -45,6 +45,7 @@ document.body.addEventListener('click', function(e){
     divv.style.borderRadius = '50%'
     divv.style.top = e.clientY - 15 + 'px';
     divv.style.left = e.clientX - 15 + 'px';
+    divv.style.backgroundColor = 'black';
     document.body.append(divv); 
  
 
@@ -64,4 +65,19 @@ document.body.addEventListener('click', function(e){
           }
 
 
-        });
+
+
+
+          let scale1 = 1;
+          let intervall = setInterval(function(e){
+              divv.style.transform = `scale(${scale1})`;
+               scale1 += .1;
+          });
+          document.body.addEventListener('mouseup', function(e){
+              clearInterval(intervall)
+          });
+          document.body.addEventListener('contextmenu', function(e){
+                    e.preventDefault();
+                });
+});
+  
